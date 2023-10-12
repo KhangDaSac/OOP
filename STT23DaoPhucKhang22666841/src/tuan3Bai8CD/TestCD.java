@@ -1,6 +1,9 @@
 package tuan3Bai8CD;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 import tuan3Bai7SinhVien.SinhVien;
@@ -112,20 +115,10 @@ public class TestCD {
 
 	public static LocalDate inputLocalDate(String str) {
 		System.out.println(str);
-		String s = inputString("");
-		String[] date = s.split("/");
-
-		while (date.length != 3) {
-			System.out.println("Ngày tháng không hợp lệ. Vui lòng nhập lại");
-			s = inputString("");
-			date = s.split("/");
-		}
-
-		int dd = Integer.parseInt(date[0]);
-		int mm = Integer.parseInt(date[1]);
-		int yy = Integer.parseInt(date[2]);
-
-		return LocalDate.of(yy, mm, dd);
+		Scanner sc = new Scanner(System.in);
+		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate date = LocalDate.parse(sc.nextLine(), pattern);
+		return date;
 	}
 
 	private static CD createCD() {

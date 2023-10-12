@@ -25,8 +25,7 @@ public class SachGiaoKhoa extends Sach {
 		return thanhTien;
 	}
 
-	public SachGiaoKhoa(String maSach, LocalDate ngayNhap, double donGia, int soLuong, String nhaXuatBan,
-			boolean tinhTrang) {
+	public SachGiaoKhoa(String maSach, LocalDate ngayNhap, double donGia, int soLuong, String nhaXuatBan, boolean tinhTrang) {
 		super(maSach, ngayNhap, donGia, soLuong, nhaXuatBan);
 		this.tinhTrang = tinhTrang;
 	}
@@ -44,12 +43,10 @@ public class SachGiaoKhoa extends Sach {
 	@Override
 	public String toString() {
 		String tinhTrangString;
-		if (isTinhTrang()) tinhTrangString = "Sách mới";
-		else tinhTrangString = "Sách cũ";
+		tinhTrangString = isTinhTrang() ? "Mới" : "Cũ";		
+		DecimalFormat moneyFormat = new DecimalFormat("###,###,###.00 VND");
+		String thanhTienString = moneyFormat.format(thanhTien());
 		
-		DecimalFormat thanhTienFormat = new DecimalFormat("###,###,###.00VND");
-		String thanhTienString = thanhTienFormat.format(thanhTien());
-		
-		return super.toString() + String.format("%20s %30", tinhTrangString, thanhTienString);
+		return super.toString() + String.format(" %15s %20s %20s", tinhTrangString,"---", thanhTienString);
 	}
 }

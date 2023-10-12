@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class DanhSachSach {
 	private ArrayList<Sach> listSach;
 	
+	public ArrayList<Sach> getAll() {
+		return this.listSach;
+	}
+	
+	public DanhSachSach() {
+		listSach = new ArrayList<Sach>();
+	}
+	
 	public void add(Sach sach) throws Exception {
 		if (!listSach.contains(sach)) {
 			listSach.add(sach);
@@ -19,20 +27,65 @@ public class DanhSachSach {
 			throw new Exception("Không tìm thấy sách");
 	}
 	
-	public double sumThanhTien() {
-		double sumThanhTien = 0;
-		for (Sach sach: listSach) {
-			sumThanhTien += sach.thanhTien();
-		}
-		return sumThanhTien;
+	public int findIndexOfChuyenXe(String maSach) {
+		for (Sach sach : listSach)
+			if (sach.getMaSach().equals(maSach))
+				return listSach.indexOf(sach);
+		return -1;
 	}
 	
-	public double averageDonGia() {
-		double sumDonGia = 0;
+	public double sumThanhTienSachGiaoKhoa() {
+		double sumThanhTienSGK = 0;
 		for (Sach sach: listSach) {
-			sumDonGia += sach.getDonGia();
+			if (sach instanceof SachGiaoKhoa)
+				sumThanhTienSGK += sach.thanhTien();
 		}
-		double aveDonGia = sumDonGia/listSach.size();
+		return sumThanhTienSGK;
+	}
+	
+	public double sumThanhTienSachThamKhao() {
+		double sumThanhTienSTK = 0;
+		for (Sach sach: listSach) {
+			if (sach instanceof SachThamKhao)
+				sumThanhTienSTK += sach.thanhTien();
+		}
+		return sumThanhTienSTK;
+	}
+	
+	public double averageDonGiaSachGiaoKhoa() {
+		double sumDonGiaSGK = 0;
+		int count = 0;
+		for (Sach sach: listSach) {
+			if (sach instanceof SachGiaoKhoa)
+			{
+				sumDonGiaSGK += sach.getDonGia();
+				count++;
+			}
+		}
+		double aveDonGia = sumDonGiaSGK/count;
 		return aveDonGia;
+	}
+	
+	public double averageDonGiaSachThamKhao() {
+		double sumDonGiaSTK = 0;
+		int count = 0;
+		for (Sach sach: listSach) {
+			if (sach instanceof SachThamKhao)
+			{
+				sumDonGiaSTK += sach.getDonGia();
+				count++;
+			}
+		}
+		double aveDonGia = sumDonGiaSTK/count;
+		return aveDonGia;
+	}
+	
+	public ArrayList<Sach> danhSachSachNXB(String tenNXB){
+		ArrayList<Sach> danhSachSachNXB = new ArrayList<Sach>();
+		for (Sach sach : listSach) {
+			if (sach.getNhaXuatBan().equalsIgnoreCase(tenNXB))
+				danhSachSachNXB.add(sach);
+		}
+		return danhSachSachNXB;
 	}
 }

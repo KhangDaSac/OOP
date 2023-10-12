@@ -1,5 +1,6 @@
 package tuan5Bai2Sach;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -86,7 +87,9 @@ public abstract class Sach {
 	@Override
 	public String toString() {
 		DateTimeFormatter localDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DecimalFormat moneyFormat = new DecimalFormat("#,##0.00 VND");
 		String ngayNhapString = getNgayNhap().format(localDateFormat);
-		return String.format("%10s %20s %30.2f %20d %30s", getMaSach(), ngayNhapString, getDonGia(), getSoLuong(), getNhaXuatBan());
+		String donGiaString = moneyFormat.format(getDonGia());
+		return String.format("%10s %15s %20s %10d %30s", getMaSach(), ngayNhapString, donGiaString, getSoLuong(), getNhaXuatBan());
 	}
 }

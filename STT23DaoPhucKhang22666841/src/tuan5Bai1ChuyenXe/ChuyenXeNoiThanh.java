@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class ChuyenXeNoiThanh extends ChuyenXe {
 	private int soTuyen;
 	private double soKm;
-	
+
 	public int getSoTuyen() {
 		return soTuyen;
 	}
@@ -31,13 +31,13 @@ public class ChuyenXeNoiThanh extends ChuyenXe {
 		super(maChuyenXe, hoTenTaiXe, soXe, doanhThu);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public String toString() {
 		DecimalFormat kmFormat = new DecimalFormat("#,##0.00km");
 		String soKmString = kmFormat.format(getSoKm());
 		return super.toString() + String.format(" %10d %20s %20s %20s", getSoTuyen(), soKmString, "---", "---");
 	}
-	
+
 }
 

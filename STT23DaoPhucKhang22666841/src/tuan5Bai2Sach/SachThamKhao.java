@@ -36,10 +36,10 @@ public class SachThamKhao extends Sach {
 	
 	@Override
 	public String toString() {
-		DecimalFormat thanhTienFormat = new DecimalFormat("###,###,###.00VND");
-		String thanhTienString = thanhTienFormat.format(thanhTien());
-		
-		return super.toString() + String.format("%20.2f %30", getThue(), thanhTienString);
+		DecimalFormat moneyFormat = new DecimalFormat("###,###,###.00 VND");
+		String thanhTienString = moneyFormat.format(thanhTien());
+		String thueString = moneyFormat.format(thue);
+		return super.toString() + String.format(" %15s %20s %20s", "---", thueString, thanhTienString);
 	}
 	
 	

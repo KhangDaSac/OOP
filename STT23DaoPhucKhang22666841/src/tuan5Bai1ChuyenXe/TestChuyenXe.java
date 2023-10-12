@@ -21,27 +21,27 @@ public class TestChuyenXe {
 				{
 					listChuyenXe.add(createChuyenXe());
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 2: 
 				{
 					deleteChuyenXe();
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 3: 
 				{
 					createDefaulChuyenXe();
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 4: 
 				{
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 5: 
@@ -58,14 +58,14 @@ public class TestChuyenXe {
 				{
 					listChuyenXe.sortListChuyenXeTheoMaXe();
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 8:
 				{
 					listChuyenXe.sortListChuyenXeTheoDoanhThu();
 					displayTitle();
-					displayListChuyenXe(listChuyenXe);
+					displayDanhSachChuyenXe(listChuyenXe);
 					break;
 				}
 				case 9:
@@ -140,7 +140,6 @@ public class TestChuyenXe {
 			int soNgayDiDuoc = inputInt("Nhập số ngày đi được: ");
 			xe = new ChuyenXeNgoaiThanh(maChuyenXe, hoTenTaiXe, soXe, doanhThu, noiDen, soNgayDiDuoc);	
 		}
-
 		return xe;
 	}
 
@@ -183,14 +182,11 @@ public class TestChuyenXe {
 		System.out.println(str);
 	}
 
-	private static void displayListChuyenXe(DanhSachChuyenXe list) {
+	private static void displayDanhSachChuyenXe(DanhSachChuyenXe list) {
 		ArrayList<ChuyenXe> listCX = list.getAll();
-		String STTTring = "";
-		for (ChuyenXe xe : listCX) {
-			STTTring = String.format("%5d", listCX.indexOf(xe) + 1);
-			System.out.println(STTTring + " " + xe );
-		}
+		displayArrayListChuyenXe(listCX);
 	}
+	
 	private static void displayArrayListChuyenXe(ArrayList<ChuyenXe> listCX) {
 		String STTTring = "";
 		for (ChuyenXe xe : listCX) {
