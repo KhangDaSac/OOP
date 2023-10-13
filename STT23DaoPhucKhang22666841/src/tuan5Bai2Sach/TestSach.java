@@ -50,21 +50,29 @@ public class TestSach {
 				}
 				case 5: 
 				{
+					displayTitle();
+					displayArrayListSach(listSach.danhSachSGK());
 					System.out.println("Tổng thành tiền sách giáo khoa là: " + moneyFormat.format(listSach.sumThanhTienSachGiaoKhoa()));
 					break;
 				}
 				case 6:
 				{
+					displayTitle();
+					displayArrayListSach(listSach.danhSachSTK());
 					System.out.println("Tổng thành tiền sách tham khảo là: " + moneyFormat.format(listSach.sumThanhTienSachThamKhao()));
 					break;
 				}
 				case 7: 
 				{
+					displayTitle();
+					displayArrayListSach(listSach.danhSachSGK());
 					System.out.println("Trung bình đơn giá sách giáo khoa là: " + moneyFormat.format(listSach.averageDonGiaSachGiaoKhoa()));
 					break;
 				}
 				case 8:
 				{
+					displayTitle();
+					displayArrayListSach(listSach.danhSachSTK());
 					System.out.println("Trung bình đơn giá sách tham khảo là: " + moneyFormat.format(listSach.averageDonGiaSachThamKhao()));
 					break;
 				}
@@ -75,11 +83,18 @@ public class TestSach {
 				}
 				case 10:
 				{
+					listSach.sortListSachTheoNgayNhap();
+					displayTitle();
+					displayDanhSachSach(listSach);
+					break;
+				}
+				case 11:
+				{
 					System.out.println("Good bye");
 					break;
 				}
 				}
-			}while(opt != 10);
+			}while(opt != 11);
 
 		} catch (Exception err) {
 			System.err.println(err.getMessage());
@@ -189,7 +204,7 @@ public class TestSach {
 		ArrayList<Sach> listSachNXB = listSach.danhSachSachNXB(maNXB);
 		displayArrayListSach(listSachNXB);
 	}
-
+	
 	private static void createDefaulSach() throws Exception {
 		Sach s1 = new SachGiaoKhoa("1234", LocalDate.of(2020, 10, 21), 200000, 10, "NXB Giáo dục", true);
 		Sach s2 = new SachGiaoKhoa("1010", LocalDate.of(2021, 2, 3), 70000, 50, "NXB Giáo dục", false);
@@ -230,12 +245,13 @@ public class TestSach {
 				+ "2.Xóa sách\n"
 				+ "3.Nhập cứng\n"
 				+ "4.Xuất bảng tất cả sách\n"
-				+ "5.Xuất tổng thành tiền Sách giáo khoa\n"
-				+ "6.Xuất tổng thành tiền Sách tham khảo\n"
-				+ "7.Xuất trung bình đơn giá của Sách giáo khoa\n"
-				+ "8.Xuất trung bình đơn giá của Sách tham khảo\n"
+				+ "5.Xuất danh sách và tổng thành tiền Sách giáo khoa\n"
+				+ "6.Xuất danh sách và tổng thành tiền Sách tham khảo\n"
+				+ "7.Xuất danh sách và trung bình đơn giá của Sách giáo khoa\n"
+				+ "8.Xuất danh sách và trung bình đơn giá của Sách tham khảo\n"
 				+ "9.Xuất danh sách theo nhà xuất bản\n"
-				+ "10.Thoát\n");
+				+ "10.Sắp xếp theo ngày nhập\n"
+				+ "11.Thoát\n");
 		option = inputInt("Mời bạn nhập: ");
 		return option;
 	}

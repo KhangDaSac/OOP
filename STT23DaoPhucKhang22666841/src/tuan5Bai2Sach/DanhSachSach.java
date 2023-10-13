@@ -1,6 +1,12 @@
 package tuan5Bai2Sach;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import tuan5Bai1ChuyenXe.ChuyenXe;
+import tuan5Bai1ChuyenXe.ChuyenXeNgoaiThanh;
 
 public class DanhSachSach {
 	private ArrayList<Sach> listSach;
@@ -80,6 +86,22 @@ public class DanhSachSach {
 		return aveDonGia;
 	}
 	
+	public ArrayList<Sach> danhSachSGK(){
+		ArrayList<Sach> listSGK = new ArrayList<Sach>();
+		for (Sach sach : listSach) {
+			if (sach instanceof SachGiaoKhoa) listSGK.add(sach);
+		}
+		return listSGK;
+	}
+	
+	public ArrayList<Sach> danhSachSTK(){
+		ArrayList<Sach> listSTK = new ArrayList<Sach>();
+		for (Sach sach : listSach) {
+			if (sach instanceof SachThamKhao) listSTK.add(sach);
+		}
+		return listSTK;
+	}
+	
 	public ArrayList<Sach> danhSachSachNXB(String tenNXB){
 		ArrayList<Sach> danhSachSachNXB = new ArrayList<Sach>();
 		for (Sach sach : listSach) {
@@ -87,5 +109,16 @@ public class DanhSachSach {
 				danhSachSachNXB.add(sach);
 		}
 		return danhSachSachNXB;
+	}
+	
+	public void sortListSachTheoNgayNhap() {
+		Collections.sort(listSach, new Comparator<Sach>() {
+			@Override
+			public int compare(Sach sach1, Sach sach2) {
+				LocalDate ngayNhapSach1 = sach1.getNgayNhap();
+				LocalDate ngayNhapSach2 = sach2.getNgayNhap();
+				return ngayNhapSach1.compareTo(ngayNhapSach2);
+			}
+		});
 	}
 }
