@@ -1,12 +1,10 @@
-package tuan3Bai8CD;
+package tuan4Bai8CD;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
-import tuan3Bai7SinhVien.SinhVien;
+
 
 public class TestCD {
 
@@ -91,7 +89,7 @@ public class TestCD {
 
 	public static String inputString(String str) {
 		if (str != "") System.out.println(str);
-		String s;
+		String s = "";
 		Scanner sc = new Scanner(System.in);
 		s = sc.nextLine();
 		return s;
@@ -198,5 +196,4 @@ public class TestCD {
 		option = inputInt("Mời bạn nhập: ");
 		return option;
 	}
-
 }

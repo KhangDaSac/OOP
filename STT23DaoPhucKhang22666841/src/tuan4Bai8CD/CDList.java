@@ -1,17 +1,14 @@
-package tuan3Bai8CD;
+package tuan4Bai8CD;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
-import tuan2Bai6HangThucPham.HangThucPham;
-import tuan3Bai7SinhVien.SinhVien;
 
 public class CDList {
 	private CD[] listCD;
 	public int count;
 	
 	public CDList() {
-		listCD = new CD[10];
+		listCD = new CD[2];
 		count = 0;
 	}
 
@@ -75,15 +72,18 @@ public class CDList {
 				if (cd1 == null && cd2 == null) {
                     return 0;
                 } else if (cd1 == null) {
-                    return 1; 
-                } else if (cd2 == null) {
                     return -1; 
+                } else if (cd2 == null) {
+                    return 1; 
                 }
-				return Double.compare(cd2.getGiaThanh(), cd1.getGiaThanh());
+				Double giaCd1 = (Double)cd1.getGiaThanh();
+				Double giaCd2 = (Double)cd2.getGiaThanh();
+				return giaCd2.compareTo(giaCd1);
 			}
 		};
 		Arrays.sort(listCD, quyLuatSapXep);
 	}
+	
 	
 	public void sortListCDTua() {
 		Comparator<CD> quyLuatSapXep = new Comparator<CD>() {
@@ -104,8 +104,7 @@ public class CDList {
 	
 	public CD[] tangKichThuoc(CD[] arr, int newLength) {
 		CD[] newArr = new CD[newLength];
-		for (int i = 0; i < count; i++) 
-			newArr[i] = arr[i];
+		System.arraycopy(arr, 0, newArr, 0, count);
 		return newArr;
 	}
 

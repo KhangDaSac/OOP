@@ -1,4 +1,4 @@
-package tuan5Bai2Sach;
+package tuan6Bai2Sach;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class DanhSachSach {
 			throw new Exception("Không tìm thấy sách");
 	}
 	
-	public int findIndexOfChuyenXe(String maSach) {
+	public int findIndexOfSach(String maSach) {
 		for (Sach sach : listSach)
 			if (sach.getMaSach().equals(maSach))
 				return listSach.indexOf(sach);

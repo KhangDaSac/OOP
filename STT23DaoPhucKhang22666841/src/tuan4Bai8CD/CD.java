@@ -1,5 +1,6 @@
-package tuan3Bai8CD;
+package tuan4Bai8CD;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 public class CD {
@@ -67,8 +68,10 @@ public class CD {
 	@Override
 	public String toString() {
 		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DecimalFormat moneyFormat = new DecimalFormat("#,##0.00 VNĐ");
 		String strPH = ngayPhatHanh.format(pattern);
-		return String.format("%10d %30s %30s %15d %20.2f %20s", getMaCD(), getTuaCD(), getCaSi(), getSoBaiHat(), getGiaThanh(),strPH);
+		String giaThanhString = moneyFormat.format(getGiaThanh());
+		return String.format("%10d %30s %30s %15d %20s %20s", getMaCD(), getTuaCD(), getCaSi(), getSoBaiHat(), giaThanhString,strPH);
 	}
 	
 }

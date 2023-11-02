@@ -1,15 +1,10 @@
-package tuan5Bai2Sach;
+package tuan6Bai2Sach;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import tuan5Bai1ChuyenXe.ChuyenXe;
-import tuan5Bai1ChuyenXe.ChuyenXeNgoaiThanh;
-import tuan5Bai1ChuyenXe.ChuyenXeNoiThanh;
-import tuan5Bai1ChuyenXe.DanhSachChuyenXe;
 
 public class TestSach {
 	static DanhSachSach listSach;
@@ -160,7 +155,7 @@ public class TestSach {
 		}
 
 		String maSach = inputString("Nhập mã sách: ");
-		while (listSach.findIndexOfChuyenXe(maSach) >= 0) {
+		while (listSach.findIndexOfSach(maSach) >= 0) {
 			System.out.println("Mã sách đã tồn tại. Vui lòng nhập lại");
 			maSach = inputString("Nhập mã sách: ");
 		}
@@ -182,7 +177,7 @@ public class TestSach {
 
 	private static void deleteSach() throws Exception {
 		String maSach = inputString("Nhập mã sách cần xóa: ");
-		int index = listSach.findIndexOfChuyenXe(maSach);
+		int index = listSach.findIndexOfSach(maSach);
 
 		if (index >= 0) {
 			Sach sach = listSach.getAll().get(index);

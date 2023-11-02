@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import tuan2Bai6HangThucPham.DanhSachHangThucPham;
-import tuan2Bai6HangThucPham.HangThucPham;
+import tuan3Bai6HangThucPham.DanhSachHangThucPham;
+import tuan3Bai6HangThucPham.HangThucPham;
 
 public class TestChuyenXe {
 	static DanhSachChuyenXe listChuyenXe;
